@@ -7,3 +7,4 @@ public/decoders/
 coverage/
 playwright-report/
 test-results/
+.vercel
