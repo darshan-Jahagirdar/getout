@@ -33,12 +33,10 @@ async function bootstrap(): Promise<void> {
     saves.save('autosave', director.snapshot().missionTime, true, tier);
   });
 
-  ui.bindStart(async () => {
-    try {
-      await audio.start();
-    } catch {
+  ui.bindStart(() => {
+    void audio.start().catch(() => {
       ui.showCallout('AUDIO OFFLINE · MISSION MAY CONTINUE', true);
-    }
+    });
     director.start();
   });
   ui.bindChecklist(

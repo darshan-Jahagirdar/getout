@@ -178,10 +178,8 @@ export class Act0UI {
     return requireElement(document, '#viewport');
   }
 
-  public bindStart(callback: () => Promise<void>): void {
-    this.startButton.addEventListener('click', () => {
-      void callback();
-    });
+  public bindStart(callback: () => void): void {
+    this.startButton.addEventListener('click', callback);
   }
 
   public bindChecklist(callback: (id: string) => boolean, feedback: () => void): void {
